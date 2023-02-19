@@ -11,6 +11,7 @@ import time
 # Here we load in the data in the format that Notion exports it in.
 ps = list(Path("Notion_DB/").glob("**/*.md"))
 #ps = list(Path("BitcoinCompany/").glob("**/*.md"))
+ps = list(Path("UnchainedCapital/").glob("**/*.md"))
 
 data = []
 sources = []
