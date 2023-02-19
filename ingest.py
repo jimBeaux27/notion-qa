@@ -5,16 +5,23 @@ import faiss
 from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
 import pickle
+import time
 
 
 # Here we load in the data in the format that Notion exports it in.
 ps = list(Path("Notion_DB/").glob("**/*.md"))
+#ps = list(Path("BitcoinCompany/").glob("**/*.md"))
 
 data = []
 sources = []
+count = 0
 for p in ps:
     with open(p) as f:
-        data.append(f.read())
+    	count+=1
+    	if(count % 3 == 0 or True):
+    		data.append(f.read())
+    		print(p)
+        #time.sleep(0.05)
     sources.append(p)
 
 # Here we split the documents, as needed, into smaller chunks.
